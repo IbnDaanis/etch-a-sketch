@@ -8,9 +8,17 @@
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+body {
+  background: rgb(240, 240, 240);
+}
+
 .title {
   text-align: center;
   width: 100%;
+  margin: 3rem auto;
+  font-weight: 500;
+  font-size: 3rem;
+  color: rgb(34, 34, 34);
 }
 
 .cell {
@@ -20,17 +28,15 @@
 }
 
 .container {
-  background: rgb(20, 20, 20);
-  width: 810px;
-  height: 810px;
-  margin: 3rem auto 0;
+  background: rgb(201, 201, 201);
+  width: 750px;
+  height: 750px;
+  margin: 0 auto;
   display: grid;
   place-items: center;
   .gridContainer {
-    // border-top: 1px solid #c7c7c7;
-    // border-left: 1px solid #c7c7c7;
-    width: 800px;
-    height: 800px;
+    width: 730px;
+    height: 730px;
     margin: 0 auto;
     background: rgb(247, 255, 255);
     display: grid;

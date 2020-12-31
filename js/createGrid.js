@@ -1,18 +1,31 @@
 const container = document.querySelector('#gridContainer')
 
-const gridSize = 16
+let gridSize = 16
 
-const createGrid = () => {
-  container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`
-  container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`
-  for (let i = 0; i < gridSize ** 2; i++) {
+document.querySelector('#gridSize').addEventListener('input', e => {
+  gridSize = e.target.value
+})
+
+const createGrid = size => {
+  container.style.gridTemplateRows = `repeat(${size},1fr)`
+  container.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+  for (let i = 0; i < size ** 2; i++) {
     const cell = document.createElement('div')
     cell.classList.add('cell')
     container.appendChild(cell)
   }
 }
 
-createGrid()
+createGrid(gridSize)
+
+document.querySelector('#gridSize').addEventListener('change', e => {
+  container.innerHTML = 'Loading'
+  gridSize = e.target.value
+  setTimeout(() => {
+    container.innerHTML = ''
+    createGrid(gridSize)
+  }, 1)
+})
 
 const cells = document.querySelectorAll('.cell')
 

@@ -8,38 +8,57 @@
 }
 
 body {
-  background: #f0f0f0;
+  background: #222;
 }
 
 .title {
   text-align: center;
   width: 100%;
-  margin: 3rem auto;
+  margin: 1rem auto;
   font-weight: 500;
   font-size: 3rem;
-  color: #222222;
+  color: silver;
 }
 
 .cell {
-  background: #f7ffff;
-  border-right: 1px solid #c7c7c7;
-  border-bottom: 1px solid #c7c7c7;
+  border-left: 1px solid #c7c7c7;
+  border-top: 1px solid #c7c7c7;
 }
 
 .container {
-  background: #c9c9c9;
-  width: 750px;
-  height: 750px;
+  background: #333;
+  width: 1200px;
   margin: 0 auto;
-  display: -ms-grid;
-  display: grid;
-  place-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.container .gridContainer {
-  width: 730px;
+.container .tools-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
   height: 730px;
-  margin: 0 auto;
+  margin: 2rem;
+}
+
+.container .grid-container {
+  margin: 2rem;
+  width: 720px;
+  height: 720px;
   background: #f7ffff;
   display: -ms-grid;
   display: grid;

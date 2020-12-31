@@ -4,13 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Etch-a-Sketch</title>
+    <title>Etch A Sketch</title>
     <!-- <link rel="icon" type="image/png" sizes="32x32" href=""/> -->
   </head>
   <body>
-    <h1 class="title">Etch-a-Sketch</h1>
+    <h1 class="title">Etch A Sketch</h1>
     <div class="container">
-      <div class="gridContainer" id="gridContainer"></div>
+      <div class="tools-container">
+        <div class="brush-color">
+          <input
+            type="color"
+            id="brushColor"
+            name="brushColor"
+            value="#e66465"
+          />
+          <label for="brushColor">Brush Colour</label>
+        </div>
+
+        <div class="grid-size">
+          <input
+            type="range"
+            id="gridSize"
+            name="griSize"
+            min="16"
+            max="96"
+            step="8"
+            value="16"
+          />
+          <label for="gridSize">Grid Size</label>
+        </div>
+      </div>
+      <div class="grid-container" id="gridContainer"></div>
     </div>
 
     <script src="./js/createGrid.js"></script>

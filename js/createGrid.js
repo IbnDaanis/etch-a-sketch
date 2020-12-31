@@ -1,10 +1,7 @@
 const container = document.querySelector('#gridContainer')
-let root = document.documentElement
-let gridSize = 16
+const gridSizeInput = document.querySelector('#gridSizeInput')
 
-document.querySelector('#gridSize').addEventListener('input', e => {
-  gridSize = e.target.value
-})
+let gridSize = 16
 
 const createGrid = size => {
   container.style.gridTemplateRows = `repeat(${size},1fr)`
@@ -20,30 +17,23 @@ createGrid(gridSize)
 
 let cells = document.querySelectorAll('.cell')
 
-const createGridBorders = () => {
-  for (let i = gridSize - 1; i < cells.length; i++) {
-    if ((i + 1) % gridSize === 0) {
+const createGridBorders = size => {
+  for (let i = size - 1; i < cells.length; i++) {
+    if ((i + 1) % size === 0) {
       cells[i].style.borderRight = '1px solid var(--grid-border-color)'
-      cells[i].style.background = 'green'
-      setTimeout(() => {
-        cells[i].style.background = ''
-      }, 500)
-    } else if (i >= cells.length - gridSize || i === gridSize ** 2 - 2) {
+    } else if (i >= cells.length - size || i === size ** 2 - 2) {
       cells[i].style.borderBottom = '1px solid var(--grid-border-color)'
       cells[i + 1].style.borderBottom = '1px solid var(--grid-border-color)'
     }
   }
 }
 
-createGridBorders()
+createGridBorders(gridSize)
 
-document.querySelector('#gridSize').addEventListener('change', e => {
-  container.innerHTML = 'Loading'
+gridSizeInput.addEventListener('change', e => {
   gridSize = e.target.value
-  setTimeout(() => {
-    container.innerHTML = ''
-    createGrid(gridSize)
-    cells = document.querySelectorAll('.cell')
-    createGridBorders()
-  }, 1)
+  container.innerHTML = ''
+  createGrid(gridSize)
+  cells = document.querySelectorAll('.cell')
+  createGridBorders(gridSize)
 })

@@ -1,3 +1,5 @@
+const root = document.documentElement
+
 let brushColorCurrent = 'red'
 let brushColorValue = 'red'
 let gridBorderHide = false

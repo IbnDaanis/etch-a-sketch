@@ -11,6 +11,15 @@
     <h1 class="title">Etch A Sketch</h1>
     <div class="container">
       <div class="tools-container">
+        <div class="gridBackground-color">
+          <input
+            type="color"
+            id="gridBackgroundColor"
+            name="gridBackgroundColor"
+            value="#f7ffff"
+          />
+          <label for="gridBackgroundColor">Background Colour</label>
+        </div>
         <div class="brush-color">
           <input
             type="color"
@@ -32,6 +41,23 @@
             value="16"
           />
           <label for="gridSize">Grid Size</label>
+        </div>
+
+        <div class="grid-color">
+          <input type="color" id="gridColor" name="gridColor" value="#e66465" />
+          <label for="gridColor">grid Colour</label>
+        </div>
+
+        <div class="brush">
+          <button id="brush">Brush</button>
+        </div>
+
+        <div class="eraser">
+          <button id="eraser">Eraser</button>
+        </div>
+
+        <div class="clear">
+          <button id="clear">Clear</button>
         </div>
       </div>
       <div class="grid-container" id="gridContainer"></div>

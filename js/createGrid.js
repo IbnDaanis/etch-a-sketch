@@ -1,5 +1,5 @@
 const container = document.querySelector('#gridContainer')
-
+let root = document.documentElement
 let gridSize = 16
 
 document.querySelector('#gridSize').addEventListener('input', e => {
@@ -31,9 +31,9 @@ const cells = document.querySelectorAll('.cell')
 
 for (let i = gridSize - 1; i < cells.length; i++) {
   if ((i + 1) % gridSize === 0) {
-    cells[i].style.borderRight = '1px solid #c7c7c7'
+    cells[i].style.borderRight = '1px solid var(--grid-border-color)'
   }
 }
 for (let i = cells.length - gridSize; i < cells.length; i++) {
-  cells[i].style.borderBottom = '1px solid #c7c7c7'
+  cells[i].style.borderBottom = '1px solid var(--grid-border-color)'
 }

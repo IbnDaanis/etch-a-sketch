@@ -15,16 +15,26 @@
 
 .cell {
   background: rgb(247, 255, 255);
-  border: 1px solid rgb(199, 199, 199);
+  border-right: 1px solid #c7c7c7;
+  border-bottom: 1px solid #c7c7c7;
 }
 
 .container {
-  // border: 1px solid rgb(199, 199, 199);
-  width: 800px;
-  height: 800px;
-  margin: 0 auto;
-  background: rgb(247, 255, 255);
+  background: rgb(20, 20, 20);
+  width: 810px;
+  height: 810px;
+  margin: 3rem auto 0;
   display: grid;
-  grid-template-rows: repeat(16, 1fr);
-  grid-template-columns: repeat(16, 1fr);
+  place-items: center;
+  .gridContainer {
+    // border-top: 1px solid #c7c7c7;
+    // border-left: 1px solid #c7c7c7;
+    width: 800px;
+    height: 800px;
+    margin: 0 auto;
+    background: rgb(247, 255, 255);
+    display: grid;
+    grid-template-rows: repeat(16, 1fr);
+    grid-template-columns: repeat(16, 1fr);
+  }
 }

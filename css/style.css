@@ -14,10 +14,21 @@
 
 .cell {
   background: #f7ffff;
-  border: 1px solid #c7c7c7;
+  border-right: 1px solid #c7c7c7;
+  border-bottom: 1px solid #c7c7c7;
 }
 
 .container {
+  background: #141414;
+  width: 810px;
+  height: 810px;
+  margin: 3rem auto 0;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.container .gridContainer {
   width: 800px;
   height: 800px;
   margin: 0 auto;

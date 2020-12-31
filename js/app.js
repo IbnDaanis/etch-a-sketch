@@ -1,5 +1,8 @@
 let brushColorCurrent = 'red'
 let brushColorValue = 'red'
+let gridBorderHide = false
+let gridBorderColorCurrent = '#c7c7c7'
+let gridBorderColorValue = '#c7c7c7'
 
 const fillCell = (cell, color = 'red') => {
   if (cell.target.classList.contains('cell')) {
@@ -17,7 +20,17 @@ document.querySelector('#brushColor').addEventListener('input', e => {
 })
 
 document.querySelector('#gridColor').addEventListener('input', e => {
-  root.style.setProperty('--grid-border-color', e.target.value)
+  gridBorderColorValue = e.target.value
+  root.style.setProperty('--grid-border-color', gridBorderColorValue)
+})
+
+document.querySelector('#gridBorderHide').addEventListener('click', e => {
+  gridBorderHide = !gridBorderHide
+  if (gridBorderHide) {
+    root.style.setProperty('--grid-border-color', 'none')
+  } else {
+    root.style.setProperty('--grid-border-color', gridBorderColorValue)
+  }
 })
 
 document.querySelector('#brush').addEventListener('click', e => {

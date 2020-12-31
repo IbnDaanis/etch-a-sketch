@@ -51,14 +51,18 @@ document.querySelector('#clear').addEventListener('click', e => {
 })
 
 let clicking = false
-container.addEventListener('mousedown', () => {
+document.body.addEventListener('mousedown', e => {
   clicking = true
 })
-container.addEventListener('mouseup', () => {
+
+document.addEventListener('mouseup', () => {
   clicking = false
 })
-container.addEventListener('mousemove', e => {
-  clicking && fillCell(e, brushColorCurrent)
+document.body.addEventListener('mousemove', e => {
+  if (e.target.classList.contains('cell')) {
+    clicking && fillCell(e, brushColorCurrent)
+  } else {
+  }
 })
 container.addEventListener('click', e => {
   clicking = true

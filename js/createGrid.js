@@ -18,22 +18,32 @@ const createGrid = size => {
 
 createGrid(gridSize)
 
+let cells = document.querySelectorAll('.cell')
+
+const createGridBorders = () => {
+  for (let i = gridSize - 1; i < cells.length; i++) {
+    if ((i + 1) % gridSize === 0) {
+      cells[i].style.borderRight = '1px solid var(--grid-border-color)'
+      cells[i].style.background = 'green'
+      setTimeout(() => {
+        cells[i].style.background = ''
+      }, 500)
+    } else if (i >= cells.length - gridSize || i === gridSize ** 2 - 2) {
+      cells[i].style.borderBottom = '1px solid var(--grid-border-color)'
+      cells[i + 1].style.borderBottom = '1px solid var(--grid-border-color)'
+    }
+  }
+}
+
+createGridBorders()
+
 document.querySelector('#gridSize').addEventListener('change', e => {
   container.innerHTML = 'Loading'
   gridSize = e.target.value
   setTimeout(() => {
     container.innerHTML = ''
     createGrid(gridSize)
+    cells = document.querySelectorAll('.cell')
+    createGridBorders()
   }, 1)
 })
-
-const cells = document.querySelectorAll('.cell')
-
-for (let i = gridSize - 1; i < cells.length; i++) {
-  if ((i + 1) % gridSize === 0) {
-    cells[i].style.borderRight = '1px solid var(--grid-border-color)'
-  }
-}
-for (let i = cells.length - gridSize; i < cells.length; i++) {
-  cells[i].style.borderBottom = '1px solid var(--grid-border-color)'
-}

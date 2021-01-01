@@ -39,8 +39,26 @@ label {
   cursor: pointer;
 }
 
+input[type='color'] {
+  -webkit-appearance: none;
+  border: none;
+  width: 80px;
+  height: 45px;
+  outline: none;
+  border: 2px solid var(--primary-color);
+  border-radius: 3px;
+}
+
+input[type='color']::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type='color']::-webkit-color-swatch {
+  border: none;
+}
+
 button {
-  width: 200px;
+  width: 220px;
   height: 45px;
   background: none;
   outline: none;
@@ -101,15 +119,50 @@ button:active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
   height: 730px;
   margin: 2rem;
 }
 
 .container .tools-container div {
-  padding: 1rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .tools-container div div {
+  margin: 0.5rem 0;
+}
+
+.container .tools-container div .color-input {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: row !important;
+          flex-direction: row !important;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .tools-container div .color-input label {
+  color: var(--primary-color);
+  padding: 0.5rem;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.container .tools-container .brush-tools {
+  margin-bottom: 2rem;
+}
+
+.container .tools-container .grid-tools div {
+  margin: 0.5rem 0;
 }
 
 .container .grid-container {

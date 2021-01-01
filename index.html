@@ -11,73 +11,83 @@
     <h1 class="title">Etch A Sketch</h1>
     <div class="container">
       <div class="tools-container">
-        <div class="gridBackground-color">
-          <input
-            type="color"
-            id="gridBackgroundColorInput"
-            name="gridBackgroundColorInput"
-            value="#f7ffff"
-          />
-          <label for="gridBackgroundColorInput">Grid Background Colour</label>
+        <!-- Brush Tools -->
+        <div class="brush-tools">
+          <!-- Brush Colour -->
+          <div class="brush-color color-input">
+            <input
+              type="color"
+              id="brushColorInput"
+              name="brushColorInput"
+              value="#ff0000"
+            />
+            <label for="brushColorInput">Brush Colour</label>
+          </div>
+          <!-- Random Brush Button -->
+          <div class="random-brush-color">
+            <button id="brushColorRandomButton">Random Brush Colour</button>
+          </div>
+          <!-- Dark Brush Button -->
+          <div class="darken-brush-color">
+            <button id="brushColorDarkenButton">Darken Brush Colour</button>
+          </div>
+          <!-- Brush Select -->
+          <div class="brush">
+            <button id="brushSelect" class="active">Brush</button>
+          </div>
+          <!-- Eraser Select -->
+          <div class="eraser">
+            <button id="eraserSelect">Eraser</button>
+          </div>
         </div>
 
-        <div class="grid-color">
-          <input
-            type="color"
-            id="gridBorderColorInput"
-            name="gridColor"
-            value="#c7c7c7"
-          />
-          <label for="gridBorderColorInput">Grid Border Colour</label>
-        </div>
-
-        <div class="grid-hide">
-          <button id="gridBorderHideButton">Hide Grid Borders</button>
-        </div>
-
-        <div class="brush-color">
-          <input
-            type="color"
-            id="brushColorInput"
-            name="brushColorInput"
-            value="#ff0000"
-          />
-          <label for="brushColorInput">Brush Colour</label>
-        </div>
-
-        <div class="random-brush-color">
-          <button id="brushColorRandomButton">Random Brush Colour</button>
-        </div>
-
-        <div class="darken-brush-color">
-          <button id="brushColorDarkenButton">Darken Brush Colour</button>
-        </div>
-
-        <div class="brush">
-          <button id="brushSelect" class="active">Brush</button>
-        </div>
-
-        <div class="eraser">
-          <button id="eraserSelect">Eraser</button>
-        </div>
-
-        <div class="gridClearButton">
-          <button id="gridClearButton">Clear</button>
-        </div>
-
-        <div class="grid-size-input">
-          <input
-            type="range"
-            id="gridSizeInput"
-            name="griSizeInput"
-            min="16"
-            max="96"
-            step="16"
-            value="16"
-          />
-          <label for="gridSizeInput">Grid Size</label>
+        <!-- Grid Tools -->
+        <div class="grid-tools">
+          <!-- Grid Size Input -->
+          <div class="grid-size-input">
+            <input
+              type="range"
+              id="gridSizeInput"
+              name="griSizeInput"
+              min="16"
+              max="96"
+              step="16"
+              value="16"
+            />
+            <label for="gridSizeInput">Grid Size</label>
+          </div>
+          <!-- Grid Background Input -->
+          <div class="gridBackground-color color-input">
+            <input
+              type="color"
+              id="gridBackgroundColorInput"
+              name="gridBackgroundColorInput"
+              value="#f7ffff"
+            />
+            <label for="gridBackgroundColorInput">Background Colour</label>
+          </div>
+          <!-- Grid Border Input -->
+          <div class="grid-color color-input">
+            <input
+              type="color"
+              id="gridBorderColorInput"
+              name="gridColor"
+              value="#c7c7c7"
+            />
+            <label for="gridBorderColorInput ">Border Colour</label>
+          </div>
+          <!-- Grid Hide Button -->
+          <div class="grid-hide">
+            <button id="gridBorderHideButton">Hide Grid Borders</button>
+          </div>
+          <!-- Grid Clear Button -->
+          <div class="gridClearButton">
+            <button id="gridClearButton">Clear</button>
+          </div>
         </div>
       </div>
+
+      <!-- Grid Container -->
       <div class="grid-container" id="gridContainer"></div>
     </div>
 

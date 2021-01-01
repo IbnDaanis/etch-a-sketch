@@ -33,6 +33,9 @@ input,
 button,
 label {
   cursor: pointer;
+  &:hover {
+    filter: brightness(1.1);
+  }
 }
 
 input[type='color'] {
@@ -43,6 +46,7 @@ input[type='color'] {
   outline: none;
   border: 2px solid var(--primary-color);
   border-radius: 3px;
+  transition: filter 0.2s ease-in-out;
 }
 input[type='color']::-webkit-color-swatch-wrapper {
   padding: 0;
@@ -67,7 +71,6 @@ button {
     color: var(--white);
     background: var(--primary-color);
   }
-
   &:active {
     color: var(--white);
     background: var(--primary-color);
@@ -75,7 +78,7 @@ button {
 }
 
 .title {
-  width: 1200px;
+  width: 1000px;
   margin: 1rem auto 0;
   font-family: 'Pacifico', cursive;
   font-weight: 500;
@@ -91,7 +94,7 @@ button {
 .container {
   background: #d38a8a;
   border-radius: 5px;
-  width: 1200px;
+  width: 1000px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -100,10 +103,12 @@ button {
     display: flex;
     flex-direction: column;
     height: 730px;
-    margin: 2rem;
+    margin: 2rem 0 2rem 2rem;
+    width: 240px;
     div {
       display: flex;
       flex-direction: column;
+      width: 100%;
       div {
         margin: 0.5rem 0;
       }
@@ -127,16 +132,19 @@ button {
         margin: 0.5rem 0;
       }
       .grid-size-input {
+        &:hover {
+          filter: brightness(1.1);
+        }
         input {
           -webkit-appearance: none;
-          width: 100%;
+          width: 220px;
           height: 10px;
           border-radius: 5px;
           background: #50001b;
           outline: none;
           opacity: 0.7;
           -webkit-transition: 0.2s;
-          transition: opacity 0.2s;
+          transition: opacity 0.2s ease-in-out, filter 0.2s ease-in-out;
         }
 
         input::-webkit-slider-thumb {
@@ -147,6 +155,7 @@ button {
           border-radius: 50%;
           background: var(--primary-color);
           cursor: pointer;
+          transition: filter 0.2s ease-in-out;
         }
 
         input::-moz-range-thumb {

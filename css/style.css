@@ -39,6 +39,13 @@ label {
   cursor: pointer;
 }
 
+input:hover,
+button:hover,
+label:hover {
+  -webkit-filter: brightness(1.1);
+          filter: brightness(1.1);
+}
+
 input[type='color'] {
   -webkit-appearance: none;
   border: none;
@@ -47,6 +54,10 @@ input[type='color'] {
   outline: none;
   border: 2px solid var(--primary-color);
   border-radius: 3px;
+  -webkit-transition: -webkit-filter 0.2s ease-in-out;
+  transition: -webkit-filter 0.2s ease-in-out;
+  transition: filter 0.2s ease-in-out;
+  transition: filter 0.2s ease-in-out, -webkit-filter 0.2s ease-in-out;
 }
 
 input[type='color']::-webkit-color-swatch-wrapper {
@@ -82,7 +93,7 @@ button:active {
 }
 
 .title {
-  width: 1200px;
+  width: 1000px;
   margin: 1rem auto 0;
   font-family: 'Pacifico', cursive;
   font-weight: 500;
@@ -98,7 +109,7 @@ button:active {
 .container {
   background: #d38a8a;
   border-radius: 5px;
-  width: 1200px;
+  width: 1000px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -120,7 +131,8 @@ button:active {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 730px;
-  margin: 2rem;
+  margin: 2rem 0 2rem 2rem;
+  width: 240px;
 }
 
 .container .tools-container div {
@@ -131,6 +143,7 @@ button:active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 100%;
 }
 
 .container .tools-container div div {
@@ -165,17 +178,24 @@ button:active {
   margin: 0.5rem 0;
 }
 
+.container .tools-container .grid-tools .grid-size-input:hover {
+  -webkit-filter: brightness(1.1);
+          filter: brightness(1.1);
+}
+
 .container .tools-container .grid-tools .grid-size-input input {
   -webkit-appearance: none;
-  width: 100%;
+  width: 220px;
   height: 10px;
   border-radius: 5px;
   background: #50001b;
   outline: none;
   opacity: 0.7;
   -webkit-transition: 0.2s;
-  -webkit-transition: opacity 0.2s;
-  transition: opacity 0.2s;
+  -webkit-transition: opacity 0.2s ease-in-out, -webkit-filter 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, -webkit-filter 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, filter 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, filter 0.2s ease-in-out, -webkit-filter 0.2s ease-in-out;
 }
 
 .container .tools-container .grid-tools .grid-size-input input::-webkit-slider-thumb {
@@ -186,6 +206,10 @@ button:active {
   border-radius: 50%;
   background: var(--primary-color);
   cursor: pointer;
+  -webkit-transition: -webkit-filter 0.2s ease-in-out;
+  transition: -webkit-filter 0.2s ease-in-out;
+  transition: filter 0.2s ease-in-out;
+  transition: filter 0.2s ease-in-out, -webkit-filter 0.2s ease-in-out;
 }
 
 .container .tools-container .grid-tools .grid-size-input input::-moz-range-thumb {

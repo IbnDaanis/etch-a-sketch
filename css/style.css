@@ -18,8 +18,7 @@
   -ms-user-select: none;
   /* Internet Explorer/Edge */
   user-select: none;
-  /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 :root {
@@ -43,7 +42,7 @@ label {
   margin: 1rem auto;
   font-weight: 500;
   font-size: 3rem;
-  color: silver;
+  color: #fafafa;
 }
 
 .cell {

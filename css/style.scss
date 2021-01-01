@@ -14,8 +14,7 @@
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 :root {
@@ -39,7 +38,7 @@ label {
   margin: 1rem auto;
   font-weight: 500;
   font-size: 3rem;
-  color: rgb(192, 192, 192);
+  color: #fafafa;
 }
 
 .cell {
@@ -67,7 +66,6 @@ label {
   .grid-container {
     // border-top: 1px solid var(--grid-border-color);
     // border-left: 1px solid var(--grid-border-color);
-
     margin: 2rem;
     width: 720px;
     height: 720px;

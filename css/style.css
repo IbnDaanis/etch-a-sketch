@@ -26,11 +26,13 @@
   --grid-border-color: #c7c7c7;
   --grid-background-color: #f7ffff;
   --primary-color: #db1c5c;
+  --secondary-color: #50001b;
+  --tertiary-color: #d38a8a;
   --white: #f0f0f0;
 }
 
 body {
-  background: #50001b;
+  background: var(--secondary-color);
 }
 
 input,
@@ -107,7 +109,7 @@ button:active {
 }
 
 .container {
-  background: #d38a8a;
+  background: var(--tertiary-color);
   border-radius: 5px;
   width: 960px;
   margin: 0 auto;
@@ -184,7 +186,7 @@ button:active {
   width: 220px;
   height: 10px;
   border-radius: 5px;
-  background: #50001b;
+  background: var(--secondary-color);
   outline: none;
   opacity: 0.7;
   -webkit-transition: 0.2s;

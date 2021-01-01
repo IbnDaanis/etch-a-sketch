@@ -1,5 +1,6 @@
 const container = document.querySelector('#gridContainer')
 const gridSizeInput = document.querySelector('#gridSizeInput')
+const gridSizeLabel = document.querySelector('#gridSizeLabel')
 const gridClearButton = document.querySelector('#gridClearButton')
 
 let gridSize = 16
@@ -33,6 +34,7 @@ createGridBorders(gridSize)
 
 gridSizeInput.addEventListener('change', ({ target }) => {
   gridSize = target.value
+  gridSizeLabel.textContent = `${gridSize}x${gridSize}`
   container.innerHTML = ''
   createGrid(gridSize)
   cells = document.querySelectorAll('.cell')

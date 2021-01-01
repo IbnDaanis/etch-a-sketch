@@ -70,7 +70,7 @@ input[type='color']::-webkit-color-swatch {
 
 button {
   width: 220px;
-  height: 45px;
+  height: 40px;
   background: none;
   outline: none;
   border: 2px solid var(--primary-color);
@@ -93,12 +93,12 @@ button:active {
 }
 
 .title {
-  width: 1000px;
-  margin: 1rem auto 0;
+  width: 960px;
+  margin: 0 auto;
   font-family: 'Pacifico', cursive;
   font-weight: 500;
   font-size: 3rem;
-  color: #fafafa;
+  color: #f8e5eb;
 }
 
 .cell {
@@ -109,7 +109,7 @@ button:active {
 .container {
   background: #d38a8a;
   border-radius: 5px;
-  width: 1000px;
+  width: 960px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -130,7 +130,7 @@ button:active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 730px;
+  height: 600px;
   margin: 2rem 0 2rem 2rem;
   width: 240px;
 }
@@ -147,7 +147,7 @@ button:active {
 }
 
 .container .tools-container div div {
-  margin: 0.5rem 0;
+  margin: 0.4rem 0;
 }
 
 .container .tools-container div .color-input {
@@ -171,11 +171,7 @@ button:active {
 }
 
 .container .tools-container .brush-tools {
-  margin-bottom: 2rem;
-}
-
-.container .tools-container .grid-tools div {
-  margin: 0.5rem 0;
+  margin-bottom: 3rem;
 }
 
 .container .tools-container .grid-tools .grid-size-input:hover {
@@ -230,8 +226,8 @@ button:active {
 
 .container .grid-container {
   margin: 2rem;
-  width: 720px;
-  height: 720px;
+  width: 600px;
+  height: 600px;
   background: var(--grid-background-color);
   display: -ms-grid;
   display: grid;

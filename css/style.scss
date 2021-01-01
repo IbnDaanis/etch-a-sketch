@@ -57,7 +57,7 @@ input[type='color']::-webkit-color-swatch {
 
 button {
   width: 220px;
-  height: 45px;
+  height: 40px;
   background: none;
   outline: none;
   border: 2px solid var(--primary-color);
@@ -78,12 +78,12 @@ button {
 }
 
 .title {
-  width: 1000px;
-  margin: 1rem auto 0;
+  width: 960px;
+  margin: 0 auto;
   font-family: 'Pacifico', cursive;
   font-weight: 500;
   font-size: 3rem;
-  color: #fafafa;
+  color: #f8e5eb;
 }
 
 .cell {
@@ -94,7 +94,7 @@ button {
 .container {
   background: #d38a8a;
   border-radius: 5px;
-  width: 1000px;
+  width: 960px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -102,7 +102,7 @@ button {
   .tools-container {
     display: flex;
     flex-direction: column;
-    height: 730px;
+    height: 600px;
     margin: 2rem 0 2rem 2rem;
     width: 240px;
     div {
@@ -110,7 +110,7 @@ button {
       flex-direction: column;
       width: 100%;
       div {
-        margin: 0.5rem 0;
+        margin: 0.4rem 0;
       }
       .color-input {
         display: flex !important;
@@ -125,12 +125,9 @@ button {
       }
     }
     .brush-tools {
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
     .grid-tools {
-      div {
-        margin: 0.5rem 0;
-      }
       .grid-size-input {
         &:hover {
           filter: brightness(1.1);
@@ -180,8 +177,8 @@ button {
     // border-top: 1px solid var(--grid-border-color);
     // border-left: 1px solid var(--grid-border-color);
     margin: 2rem;
-    width: 720px;
-    height: 720px;
+    width: 600px;
+    height: 600px;
     background: var(--grid-background-color);
     display: grid;
     grid-template-rows: repeat(16, 1fr);

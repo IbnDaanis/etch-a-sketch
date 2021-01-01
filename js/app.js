@@ -1,108 +1,139 @@
 const root = document.documentElement
+const gridBackgroundColorInput = document.querySelector(
+  '#gridBackgroundColorInput'
+)
+const gridBorderColorInput = document.querySelector('#gridBorderColorInput')
+const gridBorderHideButton = document.querySelector('#gridBorderHideButton')
+const brushColorInput = document.querySelector('#brushColorInput')
+const brushColorRandomButton = document.querySelector('#brushColorRandomButton')
+const brushColorDarkenButton = document.querySelector('#brushColorDarkenButton')
+const brushSelect = document.querySelector('#brushSelect')
+const eraserSelect = document.querySelector('#eraserSelect')
 
+// Application Settings
 let brushColorCurrent = '#ff0000'
 let brushColorValue = '#ff0000'
 let brushColorRandom = false
 let gridBorderHide = false
 let gridBorderColorCurrent = '#c7c7c7'
 let gridBorderColorValue = '#c7c7c7'
+let toggleDarkenMode = false
+
+// Helper Functions
+const randomColor = () =>
+  `#${Math.floor(Math.random() * 16777215).toString(16)}`
 
 const fillCell = (cell, color = '#ff0000') => {
-  if (cell.target.classList.contains('cell')) {
-    cell.target.style.background = color
+  if (cell.classList.contains('cell')) {
+    cell.style.background = color
   }
 }
 
-document.querySelector('#gridBackgroundColor').addEventListener('input', e => {
-  root.style.setProperty('--grid-background-color', e.target.value)
-})
+const changeGridBackgroundColor = color => {
+  root.style.setProperty('--grid-background-color', color)
+}
 
-document.querySelector('#gridColor').addEventListener('input', e => {
-  gridBorderColorValue = e.target.value
+const changeGridBorderColor = color => {
+  gridBorderColorValue = color
   root.style.setProperty('--grid-border-color', gridBorderColorValue)
-})
+}
 
-document.querySelector('#gridBorderHide').addEventListener('click', e => {
+const toggleGridBorderHidden = () => {
   gridBorderHide = !gridBorderHide
   if (gridBorderHide) {
     root.style.setProperty('--grid-border-color', 'none')
   } else {
     root.style.setProperty('--grid-border-color', gridBorderColorValue)
   }
-})
-document.querySelector('#brushColor').addEventListener('input', e => {
-  brushColorCurrent = e.target.value
-  brushColorValue = e.target.value
-})
+}
 
-const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`
+const changeBrushColor = color => {
+  brushColorCurrent = color
+  brushColorValue = color
+}
 
-document.querySelector('#randomBrushColor').addEventListener('click', e => {
+const toggleBrushColorRandom = () => {
   brushColorRandom = !brushColorRandom
   brushColorCurrent = brushColorValue
+}
+
+const darkenCell = color => {
+  let backgroundColor = color || 'rgb(247, 255, 255)'
+  let splitted = backgroundColor
+    .split('')
+    .filter(a => +a === +a)
+    .join('')
+    .split(' ')
+    .map(a => {
+      return a < 25 ? 0 : Math.round(+a - 255 / 10)
+    })
+    .join(',')
+  brushColorCurrent = `rgb(${splitted})`
+}
+
+// Event Listeners
+gridBackgroundColorInput.addEventListener('input', ({ target }) => {
+  changeGridBackgroundColor(target.value)
 })
 
-let toggleDark = false
-document.querySelector('#darkenBrushColor').addEventListener('click', e => {
-  toggleDark = !toggleDark
+gridBorderColorInput.addEventListener('input', ({ target }) => {
+  changeGridBorderColor(target.value)
 })
 
-document.querySelector('#brush').addEventListener('click', e => {
+gridBorderHideButton.addEventListener('click', () => {
+  toggleGridBorderHidden()
+})
+
+brushColorInput.addEventListener('input', ({ target }) => {
+  changeBrushColor(target.value)
+})
+
+brushColorRandomButton.addEventListener('click', () => {
+  toggleBrushColorRandom()
+})
+
+brushColorDarkenButton.addEventListener('click', () => {
+  toggleDarkenMode = !toggleDarkenMode
+})
+
+brushSelect.addEventListener('click', () => {
   brushColorCurrent = brushColorValue
 })
 
-document.querySelector('#eraser').addEventListener('click', e => {
+eraserSelect.addEventListener('click', () => {
   brushColorCurrent = ''
 })
 
-document.querySelector('#clear').addEventListener('click', e => {
-  console.log('Clearing')
-
-  container.innerHTML = ''
-  createGrid(gridSize)
-
-  console.log('Cleared')
-})
+// Logic for Interacting with the Grid
 
 let clicking = false
+
 document.body.addEventListener('mousedown', e => {
   clicking = true
 })
 
-document.addEventListener('mouseup', () => {
+document.body.addEventListener('mouseup', () => {
   clicking = false
 })
 
-document.addEventListener('mouseover', e => {
-  if (e.target.classList.contains('cell') && brushColorRandom) {
-    brushColorCurrent = `#${Math.floor(Math.random() * 16777215).toString(16)}`
-  } else if (e.target.classList.contains('cell') && toggleDark) {
-    console.log(e.target.style.background)
-    let backgroundColor = e.target.style.background || 'rgb(247, 255, 255)'
-    let splitted = backgroundColor
-      .split('')
-      .filter(a => +a === +a)
-      .join('')
-      .split(' ')
-      .map(a => {
-        return a < 25 ? 0 : Math.round(+a - 255 / 10)
-      })
-      .join(',')
-    console.log(`rgb(${splitted})`)
-    brushColorCurrent = `rgb(${splitted})`
+document.body.addEventListener('mouseover', ({ target }) => {
+  if (target.classList.contains('cell') && brushColorRandom) {
+    brushColorCurrent = randomColor()
+  } else if (target.classList.contains('cell') && toggleDarkenMode) {
+    darkenCell(target.style.background)
   }
 })
 
-document.body.addEventListener('mousemove', e => {
-  if (e.target.classList.contains('cell')) {
+document.body.addEventListener('mousemove', ({ target }) => {
+  if (target.classList.contains('cell')) {
     if (clicking) {
-      fillCell(e, brushColorCurrent)
+      fillCell(target, brushColorCurrent)
     }
   }
 })
 
-container.addEventListener('click', e => {
+container.addEventListener('click', ({ target }) => {
   clicking = true
-  clicking && fillCell(e, brushColorCurrent)
+  clicking && fillCell(target, brushColorCurrent)
   clicking = false
 })

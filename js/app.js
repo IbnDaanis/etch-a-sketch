@@ -17,7 +17,7 @@ let brushColorRandom = false
 let gridBorderHide = false
 let gridBorderColorCurrent = '#c7c7c7'
 let gridBorderColorValue = '#c7c7c7'
-let toggleDarkenMode = false
+let darkenMode = false
 
 // Helper Functions
 const randomColor = () =>
@@ -40,6 +40,7 @@ const changeGridBorderColor = color => {
 
 const toggleGridBorderHidden = () => {
   gridBorderHide = !gridBorderHide
+  gridBorderHideButton.classList.toggle('active')
   if (gridBorderHide) {
     root.style.setProperty('--grid-border-color', 'none')
   } else {
@@ -53,8 +54,18 @@ const changeBrushColor = color => {
 }
 
 const toggleBrushColorRandom = () => {
+  darkenMode && toggleDarkenMode()
   brushColorRandom = !brushColorRandom
   brushColorCurrent = brushColorValue
+  brushColorRandomButton.classList.toggle('active')
+  console.log('Random mode ', brushColorRandom)
+}
+
+const toggleDarkenMode = () => {
+  brushColorRandom && toggleBrushColorRandom()
+  darkenMode = !darkenMode
+  brushColorDarkenButton.classList.toggle('active')
+  console.log('Darken mode ', darkenMode)
 }
 
 const darkenCell = color => {
@@ -93,7 +104,7 @@ brushColorRandomButton.addEventListener('click', () => {
 })
 
 brushColorDarkenButton.addEventListener('click', () => {
-  toggleDarkenMode = !toggleDarkenMode
+  toggleDarkenMode()
 })
 
 brushSelect.addEventListener('click', () => {

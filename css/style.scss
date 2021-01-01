@@ -22,6 +22,7 @@
   --grid-border-color: #c7c7c7;
   --grid-background-color: #f7ffff;
   --primary-color: #db1c5c;
+  --white: #f0f0f0;
 }
 
 body {
@@ -44,11 +45,16 @@ button {
   color: var(--primary-color);
   font-size: 15px;
   font-weight: 500;
+
+  &.active {
+    color: var(--white);
+    background: var(--primary-color);
+  }
 }
 
 .title {
   width: 1200px;
-  margin: 1rem auto 0.2rem;
+  margin: 1rem auto 0;
   font-family: 'Pacifico', cursive;
   font-weight: 500;
   font-size: 3rem;

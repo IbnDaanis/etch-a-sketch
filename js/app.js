@@ -1,13 +1,13 @@
 const root = document.documentElement
 
-let brushColorCurrent = 'red'
-let brushColorValue = 'red'
+let brushColorCurrent = '#ff0000'
+let brushColorValue = '#ff0000'
 let brushColorRandom = false
 let gridBorderHide = false
 let gridBorderColorCurrent = '#c7c7c7'
 let gridBorderColorValue = '#c7c7c7'
 
-const fillCell = (cell, color = 'red') => {
+const fillCell = (cell, color = '#ff0000') => {
   if (cell.target.classList.contains('cell')) {
     cell.target.style.background = color
   }
@@ -42,6 +42,11 @@ document.querySelector('#randomBrushColor').addEventListener('click', e => {
   brushColorCurrent = brushColorValue
 })
 
+let toggleDark = false
+document.querySelector('#darkenBrushColor').addEventListener('click', e => {
+  toggleDark = !toggleDark
+})
+
 document.querySelector('#brush').addEventListener('click', e => {
   brushColorCurrent = brushColorValue
 })
@@ -71,7 +76,20 @@ document.addEventListener('mouseup', () => {
 document.addEventListener('mouseover', e => {
   if (e.target.classList.contains('cell') && brushColorRandom) {
     brushColorCurrent = `#${Math.floor(Math.random() * 16777215).toString(16)}`
-    console.log('hi')
+  } else if (e.target.classList.contains('cell') && toggleDark) {
+    console.log(e.target.style.background)
+    let backgroundColor = e.target.style.background || 'rgb(247, 255, 255)'
+    let splitted = backgroundColor
+      .split('')
+      .filter(a => +a === +a)
+      .join('')
+      .split(' ')
+      .map(a => {
+        return a < 25 ? 0 : Math.round(+a - 255 / 10)
+      })
+      .join(',')
+    console.log(`rgb(${splitted})`)
+    brushColorCurrent = `rgb(${splitted})`
   }
 })
 

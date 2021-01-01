@@ -31,17 +31,19 @@ const createGridBorders = size => {
 
 createGridBorders(gridSize)
 
-gridSizeInput.addEventListener('change', e => {
-  gridSize = e.target.value
+gridSizeInput.addEventListener('change', ({ target }) => {
+  gridSize = target.value
   container.innerHTML = ''
   createGrid(gridSize)
   cells = document.querySelectorAll('.cell')
   createGridBorders(gridSize)
 })
 
-gridClearButton.addEventListener('click', e => {
+gridClearButton.addEventListener('click', () => {
+  gridClearButton.classList.add('active')
   console.log('Clearing')
   container.innerHTML = ''
   createGrid(gridSize)
   console.log('Cleared')
+  gridClearButton.classList.remove('active')
 })

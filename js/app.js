@@ -11,13 +11,15 @@ const brushSelect = document.querySelector('#brushSelect')
 const eraserSelect = document.querySelector('#eraserSelect')
 
 // Application Settings
+let gridBorderColorCurrent = '#c7c7c7'
+let gridBorderColorValue = '#c7c7c7'
 let brushColorCurrent = '#ff0000'
 let brushColorValue = '#ff0000'
 let brushColorRandom = false
 let gridBorderHide = false
-let gridBorderColorCurrent = '#c7c7c7'
-let gridBorderColorValue = '#c7c7c7'
+let brushMode = true
 let darkenMode = false
+let eraserMode = false
 
 // Helper Functions
 const randomColor = () =>
@@ -54,6 +56,7 @@ const changeBrushColor = color => {
 }
 
 const toggleBrushColorRandom = () => {
+  eraserMode && toggleEraserMode()
   darkenMode && toggleDarkenMode()
   brushColorRandom = !brushColorRandom
   brushColorCurrent = brushColorValue
@@ -62,10 +65,30 @@ const toggleBrushColorRandom = () => {
 }
 
 const toggleDarkenMode = () => {
+  eraserMode && toggleEraserMode()
   brushColorRandom && toggleBrushColorRandom()
   darkenMode = !darkenMode
   brushColorDarkenButton.classList.toggle('active')
   console.log('Darken mode ', darkenMode)
+}
+
+const toggleBrushMode = () => {
+  brushColorRandom && toggleBrushColorRandom()
+  darkenMode && toggleDarkenMode()
+  eraserMode && toggleEraserMode()
+  brushColorCurrent = brushColorValue
+  brushMode = !brushMode
+  brushSelect.classList.toggle('active')
+}
+
+const toggleEraserMode = () => {
+  brushColorRandom && toggleBrushColorRandom()
+  darkenMode && toggleDarkenMode()
+  brushMode && toggleBrushMode()
+  eraserMode = !eraserMode
+  eraserSelect.classList.toggle('active')
+  eraserMode ? (brushColorCurrent = '') : (brushColorCurrent = brushColorValue)
+  console.log('Eraser mode ', eraserMode)
 }
 
 const darkenCell = color => {
@@ -108,11 +131,11 @@ brushColorDarkenButton.addEventListener('click', () => {
 })
 
 brushSelect.addEventListener('click', () => {
-  brushColorCurrent = brushColorValue
+  toggleBrushMode()
 })
 
 eraserSelect.addEventListener('click', () => {
-  brushColorCurrent = ''
+  toggleEraserMode()
 })
 
 // Logic for Interacting with the Grid
@@ -130,7 +153,7 @@ document.body.addEventListener('mouseup', () => {
 document.body.addEventListener('mouseover', ({ target }) => {
   if (target.classList.contains('cell') && brushColorRandom) {
     brushColorCurrent = randomColor()
-  } else if (target.classList.contains('cell') && toggleDarkenMode) {
+  } else if (target.classList.contains('cell') && darkenMode) {
     darkenCell(target.style.background)
   }
 })

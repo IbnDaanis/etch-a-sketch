@@ -49,9 +49,16 @@ button {
   color: var(--primary-color);
   font-size: 15px;
   font-weight: 500;
+  -webkit-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 
 button.active {
+  color: var(--white);
+  background: var(--primary-color);
+}
+
+button:active {
   color: var(--white);
   background: var(--primary-color);
 }

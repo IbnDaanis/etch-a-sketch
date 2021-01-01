@@ -45,8 +45,14 @@ button {
   color: var(--primary-color);
   font-size: 15px;
   font-weight: 500;
+  transition: 0.1s ease-in-out;
 
   &.active {
+    color: var(--white);
+    background: var(--primary-color);
+  }
+
+  &:active {
     color: var(--white);
     background: var(--primary-color);
   }

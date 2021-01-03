@@ -17,9 +17,9 @@ let brushColorCurrent = '#ff0000'
 let brushColorValue = '#ff0000'
 let brushColorRandom = false
 let gridBorderHide = false
-let brushMode = true
 let darkenMode = false
 let eraserMode = false
+let brushMode = true
 
 // Helper Functions
 const randomColor = () =>
